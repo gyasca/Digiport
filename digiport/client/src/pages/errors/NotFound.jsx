@@ -6,7 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 function NotFound() {
     return (
-        <Container maxWidth="xl" sx={{marginTop: "1rem"}}>
+        <Container maxWidth="xl">
             <Card sx={{ maxWidth: 500, margin: "auto" }}>
                 <CardContent>
                     <CardTitle icon={<QuestionMarkIcon />} title="Page Not Found" />

@@ -29,8 +29,9 @@ const Home = () => {
         position: "relative",
         minHeight: "87vh",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        // the attributes below are to center all elements on the page vertically and horizontally
+        // justifyContent: "center",
+        // alignItems: "center",
       }}
     >
       <Container>

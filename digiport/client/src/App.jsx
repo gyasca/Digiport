@@ -22,15 +22,17 @@ function App() {
           backgroundImage: `url(/matchalaptopplant.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          position: "relative"
+          position: "relative",
         }}
       >
         <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
           <Navbar />
-          <Routes location={location}>
-            <Route path="*" element={<UserRoutes />} />
-            {/* <Route path="/admin/*" element={<AdminRoutes />} /> */}
-          </Routes>
+          <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column", mt: 4 }}>
+            <Routes location={location}>
+              <Route path="*" element={<UserRoutes />} />
+              {/* <Route path="/admin/*" element={<AdminRoutes />} /> */}
+            </Routes>
+          </Box>
         </Box>
         <Footer />
       </Box>
