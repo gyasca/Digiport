@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 import NotFound from './errors/NotFound'
 import Home from './Home'
 import Resume from './resume/Resume'
+import PortfolioExample1 from '../components/exampleComponents/PortfolioExample1'
 // import { UserContext } from '..'
 
 
@@ -18,6 +19,7 @@ function UserRoutes() {
         <Routes>
             <Route path='*' element={<NotFound />} />
             <Route path="/" element={<Home />} />
+            <Route path="/portfolio-example-1" element={<PortfolioExample1 />} />
             {/* <Route path="/login" element={!user ? <Login /> : <Navigate to={"/"} />} />
             <Route path="/register" element={!user ? <Register /> : <Navigate to={"/"} />} /> */}
             <Route path="/resume" element={<Resume />} />
