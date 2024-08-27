@@ -23,9 +23,10 @@ function App() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",
+          // minHeight: "90vh"
         }}
       >
-        <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
+        <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column", minHeight: "100vh" }}>
           <Navbar />
           <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column", mt: 4 }}>
             <Routes location={location}>

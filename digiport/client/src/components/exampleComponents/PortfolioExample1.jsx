@@ -21,6 +21,7 @@ import {
   ThemeProvider,
   createTheme,
   CssBaseline,
+  Paper,
 } from "@mui/material";
 import {
   GitHub as GitHubIcon,
@@ -48,8 +49,8 @@ const Portfolio = () => {
   };
 
   const personalInfo = {
-    name: "Your Name",
-    title: "Your Professional Title",
+    name: "Gregory Achilles Chua",
+    title: "Full-stack developer",
     bio: "A comprehensive description about yourself, your journey, and your professional expertise.",
     skills: [
       {
@@ -125,117 +126,155 @@ const Portfolio = () => {
     },
   };
 
-  return <>
-   <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Typography variant="h2" component="h1" gutterBottom>
-          {personalInfo.name}
-        </Typography>
-        <Typography variant="h5" color="textSecondary" paragraph>
-          {personalInfo.title}
-        </Typography>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
-          <Tabs value={activeTab} onChange={handleTabChange} aria-label="portfolio tabs">
-            <Tab label="About" />
-            <Tab label="Experience" />
-            <Tab label="Projects" />
-            <Tab label="Education" />
-          </Tabs>
-        </Box>
-        <Box role="tabpanel" hidden={activeTab !== 0}>
-          {activeTab === 0 && (
-            <>
-              <Typography variant="body1" paragraph>
-                {personalInfo.bio}
-              </Typography>
-              <Typography variant="h6" gutterBottom>
-                Skills
-              </Typography>
-              {personalInfo.skills.map((skillGroup, index) => (
-                <Box key={index} mb={2}>
-                  <Typography variant="subtitle1" gutterBottom>
-                    {skillGroup.category}
-                  </Typography>
-                  <Box display="flex" flexWrap="wrap" gap={1}>
-                    {skillGroup.items.map((skill, skillIndex) => (
-                      <Chip key={skillIndex} label={skill} />
-                    ))}
+  return (
+    <>
+      <Container
+        maxWidth="lg"
+        sx={{
+          mt: 0,
+          mb: 5,
+          position: "relative",
+          minHeight: "55vh",
+          display: "flex",
+          // the attributes below are to center all elements on the page vertically and horizontally
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Paper
+          sx={{
+            width: "100%",
+            maxWidth: "100%", // Adjust this value to change the fixed width
+            padding: 4,
+          }}
+        >
+          <Typography variant="h2" component="h1" gutterBottom>
+            {personalInfo.name}
+          </Typography>
+          <Typography variant="h5" color="textSecondary" paragraph>
+            {personalInfo.title}
+          </Typography>
+          <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 3 }}>
+            <Tabs
+              value={activeTab}
+              onChange={handleTabChange}
+              aria-label="portfolio tabs"
+            >
+              <Tab label="About" />
+              <Tab label="Experience" />
+              <Tab label="Projects" />
+              <Tab label="Education" />
+            </Tabs>
+          </Box>
+          <Box role="tabpanel" hidden={activeTab !== 0}>
+            {activeTab === 0 && (
+              <>
+                <Typography variant="body1" paragraph>
+                  {personalInfo.bio}
+                </Typography>
+                <Typography variant="h6" gutterBottom>
+                  Skills
+                </Typography>
+                {personalInfo.skills.map((skillGroup, index) => (
+                  <Box key={index} mb={2}>
+                    <Typography variant="subtitle1" gutterBottom>
+                      {skillGroup.category}
+                    </Typography>
+                    <Box display="flex" flexWrap="wrap" gap={1}>
+                      {skillGroup.items.map((skill, skillIndex) => (
+                        <Chip key={skillIndex} label={skill} />
+                      ))}
+                    </Box>
                   </Box>
-                </Box>
-              ))}
-            </>
-          )}
-        </Box>
-        <Box role="tabpanel" hidden={activeTab !== 1}>
-          {activeTab === 1 && (
-            <List>
-              {personalInfo.experience.map((job, index) => (
-                <ListItem key={index} alignItems="flex-start">
-                  <ListItemText
-                    primary={job.title}
-                    secondary={
-                      <>
-                        <Typography component="span" variant="body2" color="textPrimary">
-                          {job.company} | {job.period}
+                ))}
+              </>
+            )}
+          </Box>
+          <Box role="tabpanel" hidden={activeTab !== 1}>
+            {activeTab === 1 && (
+              <List>
+                {personalInfo.experience.map((job, index) => (
+                  <ListItem key={index} alignItems="flex-start">
+                    <ListItemText
+                      primary={job.title}
+                      secondary={
+                        <>
+                          <Typography
+                            component="span"
+                            variant="body2"
+                            color="textPrimary"
+                          >
+                            {job.company} | {job.period}
+                          </Typography>
+                          <List dense>
+                            {job.responsibilities.map((resp, respIndex) => (
+                              <ListItem key={respIndex}>
+                                <ListItemText primary={resp} />
+                              </ListItem>
+                            ))}
+                          </List>
+                        </>
+                      }
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            )}
+          </Box>
+          <Box role="tabpanel" hidden={activeTab !== 2}>
+            {activeTab === 2 && (
+              <Grid container spacing={3}>
+                {personalInfo.projects.map((project, index) => (
+                  <Grid item xs={12} sm={6} md={4} key={index}>
+                    <Card>
+                      <CardContent>
+                        <Typography variant="h6" component="div">
+                          {project.name}
                         </Typography>
-                        <List dense>
-                          {job.responsibilities.map((resp, respIndex) => (
-                            <ListItem key={respIndex}>
-                              <ListItemText primary={resp} />
-                            </ListItem>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          paragraph
+                        >
+                          {project.description}
+                        </Typography>
+                        <Box display="flex" flexWrap="wrap" gap={1} mb={2}>
+                          {project.technologies.map((tech, techIndex) => (
+                            <Chip key={techIndex} label={tech} size="small" />
                           ))}
-                        </List>
-                      </>
-                    }
-                  />
-                </ListItem>
-              ))}
-            </List>
-          )}
-        </Box>
-        <Box role="tabpanel" hidden={activeTab !== 2}>
-          {activeTab === 2 && (
-            <Grid container spacing={3}>
-              {personalInfo.projects.map((project, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h6" component="div">
-                        {project.name}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary" paragraph>
-                        {project.description}
-                      </Typography>
-                      <Box display="flex" flexWrap="wrap" gap={1} mb={2}>
-                        {project.technologies.map((tech, techIndex) => (
-                          <Chip key={techIndex} label={tech} size="small" />
-                        ))}
-                      </Box>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" endIcon={<LaunchIcon />} href={project.link} target="_blank">
-                        View Project
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          )}
-        </Box>
-        <Box role="tabpanel" hidden={activeTab !== 3}>
-          {activeTab === 3 && (
-            <List>
-              {personalInfo.education.map((edu, index) => (
-                <ListItem key={index}>
-                  <ListItemText
-                    primary={edu.degree}
-                    secondary={`${edu.institution} | ${edu.year}`}
-                  />
-                </ListItem>
-              ))}
-            </List>
-          )}
-        </Box>
+                        </Box>
+                      </CardContent>
+                      <CardActions>
+                        <Button
+                          size="small"
+                          endIcon={<LaunchIcon />}
+                          href={project.link}
+                          target="_blank"
+                        >
+                          View Project
+                        </Button>
+                      </CardActions>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            )}
+          </Box>
+          <Box role="tabpanel" hidden={activeTab !== 3}>
+            {activeTab === 3 && (
+              <List>
+                {personalInfo.education.map((edu, index) => (
+                  <ListItem key={index}>
+                    <ListItemText
+                      primary={edu.degree}
+                      secondary={`${edu.institution} | ${edu.year}`}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            )}
+          </Box>
+        </Paper>
       </Container>
       {/* <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6, mt: 4 }}>
         <Container maxWidth="lg">
@@ -255,7 +294,8 @@ const Portfolio = () => {
           </Box>
         </Container>
       </Box> */}
-      </>;
+    </>
+  );
 };
 
 export default Portfolio;

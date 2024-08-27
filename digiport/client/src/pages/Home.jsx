@@ -12,6 +12,7 @@ import {
   Paper,
 } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const fullUser = {}; // Replace this with your user object
@@ -23,15 +24,12 @@ const Home = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(/matchalaptopplant.jpg)`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         position: "relative",
-        minHeight: "87vh",
+        minHeight: "55vh",
         display: "flex",
         // the attributes below are to center all elements on the page vertically and horizontally
-        // justifyContent: "center",
-        // alignItems: "center",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container>
@@ -114,8 +112,7 @@ const Home = () => {
                 </Typography>
               </CardContent>
             </Card>
-            <Paper
-              elevation={0}
+            <Box
               sx={{
                 display: "flex",
                 flexDirection: "row", // Change flexDirection to row
@@ -124,7 +121,7 @@ const Home = () => {
                 padding: 1,
                 paddingTop: 3,
                 paddingBottom: 3,
-                background: "transparent"
+                background: "transparent",
               }}
             >
               <Button
@@ -153,6 +150,34 @@ const Home = () => {
               >
                 Projects
               </Button>
+              {/* <Button
+                color="inherit"
+                variant="text"
+                LinkComponent={Link}
+                to="/"
+                sx={{
+                  marginRight: "1rem",
+                  fontFamily: "'Righteous', cursive",
+                  textTransform: "none",
+                  fontSize: "20px",
+                  padding: "0",
+                }}
+              ></Button> */}
+              <Button
+                LinkComponent={Link}
+                to="/portfolio-example-1"
+                variant="outlined"
+                sx={{
+                  width: "70px",
+                  height: "70px",
+                  borderRadius: "50%",
+                  border: "1px solid black",
+                  backgroundColor: "#fae4cd",
+                  padding: "50px",
+                }}
+              >
+                Portfolio
+              </Button>
               <Button
                 variant="outlined"
                 sx={{
@@ -179,7 +204,7 @@ const Home = () => {
               >
                 Contact
               </Button>
-            </Paper>
+            </Box>
           </Grid>
         </Grid>
       </Container>
