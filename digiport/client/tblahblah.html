@@ -1,0 +1,64 @@
+<html>
+  <body>
+    <div id="container"></div>
+    <script>
+      const container = document.getElementById("container");
+      for (let i = 0; i < 10; i++) {
+        const box = document.createElement("div");
+        box.textContent = `Box ${i + 1}`;
+        box.style.width = "100px";
+        box.style.height = "100px";
+        box.style.margin = "10px";
+        box.style.backgroundColor = `rgb(${Math.random() * 255}, ${
+          Math.random() * 255
+        }, ${Math.random() * 255})`;
+        box.style.display = "inline-block";
+        box.style.textAlign = "center";
+        box.style.lineHeight = "100px";
+        container.appendChild(box);
+      }
+    </script>
+
+    <div id="box">Hello!</div>
+    <script>
+      const box = document.getElementById("box");
+      box.style.width = "200px";
+      box.style.height = "200px";
+      box.style.backgroundColor = "lightblue";
+      box.style.color = "white";
+      box.style.textAlign = "center";
+      box.style.lineHeight = "200px";
+      box.style.fontFamily = "Arial, sans-serif";
+    </script>
+    ``> - Here, JavaScript applies styles directly to the element, no external
+    CSS needed. --- #### **2. Adding and Modifying Classes** JavaScript can
+    dynamically add, remove, or toggle classes with pre-defined styles: ```html
+    <div id="box23">Click Me!</div>
+    <script>
+      const box23 = document.getElementById("box23");
+      box23.style.cursor = "pointer";
+
+      box23.addEventListener("click", () => {
+        box23.style.backgroundColor =
+          box23.style.backgroundColor === "lightblue" ? "orange" : "lightblue";
+      });
+    </script>
+
+<div id="box24"></div>
+<script>
+  const box24 = document.getElementById('box24');
+  box24.style.width = '50px';
+  box24.style.height = '50px';
+  box24.style.backgroundColor = 'red';
+  box24.style.position = 'absolute';
+
+  let position = 0;
+  setInterval(() => {
+    position += 1;
+    box24.style.left = position + 'px';
+    box24.style.top = Math.sin(position * 0.05) * 50 + 'px';
+  }, 10);
+</script>
+
+  </body>
+</html>
