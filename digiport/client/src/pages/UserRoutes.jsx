@@ -5,6 +5,7 @@ import Home from './Home'
 import Resume from './resume/Resume'
 import PortfolioExample1 from '../components/exampleComponents/PortfolioExample1'
 // import { UserContext } from '..'
+import NavyGame from './navy'
 
 
 function UserRoutes() {
@@ -23,6 +24,7 @@ function UserRoutes() {
             {/* <Route path="/login" element={!user ? <Login /> : <Navigate to={"/"} />} />
             <Route path="/register" element={!user ? <Register /> : <Navigate to={"/"} />} /> */}
             <Route path="/resume" element={<Resume />} />
+            <Route path="/navy" element={<NavyGame />} />
         </Routes>
     )
 }
