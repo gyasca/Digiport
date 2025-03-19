@@ -51,7 +51,7 @@ const Portfolio = () => {
   const personalInfo = {
     name: "Gregory Achilles Chua",
     title: "Full-stack developer",
-    bio: "A comprehensive description about yourself, your journey, and your professional expertise.",
+    bio: "I am a recent polytechnic graduate under the Diploma in Information Technology. I aspire to be a software developer in the future. As for the near future, I will be matriculating into NTU or SMU in 2027.",
     skills: [
       {
         category: "Programming",
@@ -65,13 +65,13 @@ const Portfolio = () => {
     ],
     experience: [
       {
-        title: "Senior Developer",
-        company: "Tech Co",
-        period: "2020 - Present",
+        title: "Sales Associate",
+        company: "AftershockPC",
+        period: "2022-2023",
         responsibilities: [
-          "Led a team of 5 developers on high-priority projects",
-          "Implemented CI/CD pipelines, reducing deployment time by 40%",
-          "Mentored junior developers, improving team productivity by 25%",
+          "Sales of desktop and laptop computers",
+          "72 sales in 4 days",
+          "Achieve daily sales target",
         ],
       },
       {
