@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import Badge from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
 
 const Home = () => {
   const fullUser = {}; // Replace this with your user object
@@ -20,6 +22,38 @@ const Home = () => {
   const handleMenuOpen = () => {
     // Handle menu opening logic
   };
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      backgroundColor: "#44b700",
+      color: "#44b700",
+      width: "15px", // Increase width
+      height: "15px", // Increase height
+      fontSize: "8px", // Adjust font size if needed
+      borderRadius: "50%",
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      "&::after": {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        borderRadius: "50%",
+        animation: "ripple 1.2s infinite ease-in-out",
+        border: "1px solid currentColor",
+        content: '""',
+      },
+    },
+    "@keyframes ripple": {
+      "0%": {
+        transform: "scale(.8)",
+        opacity: 1,
+      },
+      "100%": {
+        transform: "scale(2.4)",
+        opacity: 0,
+      },
+    },
+  }));
 
   return (
     <Box
@@ -47,7 +81,7 @@ const Home = () => {
             >
               <CardContent>
                 {/* Profile picture */}
-                <IconButton aria-label="profile photo" onClick={handleMenuOpen}>
+                {/* <IconButton aria-label="profile photo" onClick={handleMenuOpen}>
                   {fullUser && fullUser.googleAccountType ? (
                     <Avatar
                       alt="profilephoto"
@@ -66,14 +100,45 @@ const Home = () => {
                       src={`digiport\client\public\digiportlogo1.jpeg`}
                     />
                   )}
-                </IconButton>
+                </IconButton> */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    m: 4,
+                  }}
+                >
+                  <StyledBadge
+                    overlap="circular"
+                    anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                    variant="dot"
+                  >
+                    <Avatar
+                      alt="profilephoto"
+                      src="../../public/gregpfpbali.jpg"
+                      sx={{ width: 200, height: 200 }}
+                    />
+                  </StyledBadge>
+                </Box>
                 {/* User name */}
-                <Typography variant="h5" align="center" gutterBottom>
+                {/* <Typography variant="h5" align="center" gutterBottom>
                   {`${fullUser.firstName} ${fullUser.lastName}`}
+                </Typography> */}
+                <Typography
+                  variant="h5"
+                  align="center"
+                  sx={{ fontWeight: "bold" }}
+                  gutterBottom
+                >
+                  Gregory Achilles Chua
                 </Typography>
                 {/* Email */}
-                <Typography variant="body1" align="center" gutterBottom>
+                {/* <Typography variant="body1" align="center" gutterBottom>
                   {fullUser.email}
+                </Typography> */}
+                <Typography variant="body1" align="center" gutterBottom>
+                  gregorychua14@gmail.com
                 </Typography>
                 {/* Edit profile button */}
                 {/* <Box display="flex" justifyContent="center" mt={2}>
