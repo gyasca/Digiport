@@ -10,7 +10,7 @@ const MatrixBackground = () => {
     // Set canvas size
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = document.documentElement.scrollHeight; // Cover entire document height
     };
     setCanvasSize();
 
@@ -98,7 +98,7 @@ const MatrixBackground = () => {
     };
   }, []);
 
-  return <div id="matrix-background-container" style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, width: '100%', height: '100vh' }} />;
+  return <div id="matrix-background-container" style={{ position: 'fixed', top: 0, left: 0, zIndex: -1, width: '100%', height: '100%', pointerEvents: 'none' }} />;
 };
 
 export default MatrixBackground;

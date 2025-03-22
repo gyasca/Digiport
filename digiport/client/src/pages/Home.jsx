@@ -58,7 +58,6 @@ const Home = () => {
   return (
     <Box
       sx={{
-        position: "relative",
         minHeight: "55vh",
         display: "flex",
         // the attributes below are to center all elements on the page vertically and horizontally
@@ -66,22 +65,21 @@ const Home = () => {
         alignItems: "center",
       }}
     >
-      <Container>
-        <Grid container spacing={3}>
-          {/* Left section with user profile */}
-          <Grid item xs={12} md={4}>
-            <Card
-              sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CardContent>
-                {/* Profile picture */}
-                {/* <IconButton aria-label="profile photo" onClick={handleMenuOpen}>
+      <Grid container spacing={3}>
+        {/* Left section with user profile */}
+        <Grid item xs={12} md={4}>
+          <Card
+            sx={{
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CardContent>
+              {/* Profile picture */}
+              {/* <IconButton aria-label="profile photo" onClick={handleMenuOpen}>
                   {fullUser && fullUser.googleAccountType ? (
                     <Avatar
                       alt="profilephoto"
@@ -101,178 +99,181 @@ const Home = () => {
                     />
                   )}
                 </IconButton> */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    m: 4,
-                  }}
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  m: 4,
+                }}
+              >
+                <StyledBadge
+                  overlap="circular"
+                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                  variant="dot"
                 >
-                  <StyledBadge
-                    overlap="circular"
-                    anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                    variant="dot"
-                  >
-                    <Avatar
-                      alt="profilephoto"
-                      src="/gregpfpbali.jpg"
-                      sx={{ width: 200, height: 200 }}
-                    />
-                  </StyledBadge>
-                </Box>
-                {/* User name */}
-                {/* <Typography variant="h5" align="center" gutterBottom>
+                  <Avatar
+                    alt="profilephoto"
+                    src="/gregpfpbali.jpg"
+                    sx={{ width: 200, height: 200 }}
+                  />
+                </StyledBadge>
+              </Box>
+              {/* User name */}
+              {/* <Typography variant="h5" align="center" gutterBottom>
                   {`${fullUser.firstName} ${fullUser.lastName}`}
                 </Typography> */}
-                <Typography
-                  variant="h5"
-                  align="center"
-                  sx={{ fontWeight: "bold" }}
-                  gutterBottom
-                >
-                  Gregory Achilles Chua
-                </Typography>
-                {/* Email */}
-                {/* <Typography variant="body1" align="center" gutterBottom>
+              <Typography
+                variant="h5"
+                align="center"
+                sx={{ fontWeight: "bold" }}
+                gutterBottom
+              >
+                Gregory Achilles Chua
+              </Typography>
+              {/* Email */}
+              {/* <Typography variant="body1" align="center" gutterBottom>
                   {fullUser.email}
                 </Typography> */}
-                <Typography variant="body1" align="center" gutterBottom>
-                  gregorychua14@gmail.com
-                </Typography>
-                {/* Edit profile button */}
-                {/* <Box display="flex" justifyContent="center" mt={2}>
+              <Typography variant="body1" align="center" gutterBottom>
+                gregorychua14@gmail.com
+              </Typography>
+              {/* Edit profile button */}
+              {/* <Box display="flex" justifyContent="center" mt={2}>
                   <Button variant="contained" color="secondary">
                     Edit Profile
                   </Button>
                 </Box> */}
-              </CardContent>
-            </Card>
-          </Grid>
-          {/* Text section */}
-          <Grid item xs={12} md={8}>
-            <Card
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <CardContent>
-                <Typography
-                  variant="h4"
-                  gutterBottom
-                  fontWeight="bold"
-                  sx={{ textAlign: "center" }}
-                >
-                  Welcome to my Portfolio
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  I am a recent Information Technology graduate from Nanyang
-                  Polytechnic, equipped with a strong foundation in software
-                  design and implementation and a passion for software
-                  development.
-                </Typography>
-              </CardContent>
-            </Card>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row", // Change flexDirection to row
-                justifyContent: "space-evenly", // Align buttons evenly
-                alignItems: "center",
-                padding: 1,
-                paddingTop: 3,
-                paddingBottom: 3,
-                background: "transparent",
-              }}
-            >
-              <Button
-                variant="outlined"
-                sx={{
-                  width: "70px",
-                  height: "70px",
-                  borderRadius: "50%",
-                  border: "1px solid black",
-                  backgroundColor: "#FFD9EC",
-                  padding: "50px",
-                }}
-              >
-                About Me
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  width: "70px",
-                  height: "70px",
-                  borderRadius: "50%",
-                  border: "1px solid black",
-                  backgroundColor: "#D6FFEC",
-                  padding: "50px",
-                }}
-              >
-                Projects
-              </Button>
-              {/* <Button
-                color="inherit"
-                variant="text"
-                LinkComponent={Link}
-                to="/"
-                sx={{
-                  marginRight: "1rem",
-                  fontFamily: "'Righteous', cursive",
-                  textTransform: "none",
-                  fontSize: "20px",
-                  padding: "0",
-                }}
-              ></Button> */}
-              <Button
-                LinkComponent={Link}
-                to="/portfolio-example-1"
-                variant="outlined"
-                sx={{
-                  width: "70px",
-                  height: "70px",
-                  borderRadius: "50%",
-                  border: "1px solid black",
-                  backgroundColor: "#fae4cd",
-                  padding: "50px",
-                }}
-              >
-                Portfolio
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  width: "70px",
-                  height: "70px",
-                  borderRadius: "50%",
-                  border: "1px solid black",
-                  backgroundColor: "#FFECD6",
-                  padding: "50px",
-                }}
-              >
-                Resume
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  width: "70px",
-                  height: "70px",
-                  borderRadius: "50%",
-                  border: "1px solid black",
-                  backgroundColor: "#FFECFF",
-                  padding: "50px",
-                }}
-              >
-                Contact
-              </Button>
-            </Box>
-          </Grid>
+            </CardContent>
+          </Card>
         </Grid>
-      </Container>
+        {/* Text section */}
+        <Grid item xs={12} md={8}>
+          <Card
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: "20px",
+            }}
+          >
+            <CardContent>
+              <Typography
+                variant="h4"
+                gutterBottom
+                fontWeight="bold"
+                sx={{ textAlign: "center" }}
+              >
+                Welcome to my Portfolio
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                I am a recent Information Technology graduate from Nanyang
+                Polytechnic, equipped with a strong foundation in software
+                design and implementation and a passion for software
+                development.
+              </Typography>
+            </CardContent>
+          </Card>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap", // Allow the buttons to wrap
+              justifyContent: "center", // Center the buttons horizontally
+              alignItems: "center",
+              gap: 2, // Add space between the buttons
+              padding: 1,
+              paddingTop: 3,
+              paddingBottom: 3,
+              background: "transparent",
+            }}
+          >
+            <Button
+              variant="outlined"
+              sx={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "50%",
+                border: "1px solid white",
+                color: "#FFFFFF",
+                padding: 0, // Adjust padding to make the button shape correct
+                minWidth: "70px", // Ensure the button is at least 70px wide
+                minHeight: "70px", // Ensure the button is at least 70px tall
+                fontSize: "12px", // Adjust font size for smaller screens
+              }}
+            >
+              About Me
+            </Button>
+            <Button
+              variant="outlined"
+              sx={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "50%",
+                border: "1px solid white",
+                color: "#FFFFFF",
+                padding: 0,
+                minWidth: "70px",
+                minHeight: "70px",
+                fontSize: "12px",
+              }}
+            >
+              Projects
+            </Button>
+            <Button
+              LinkComponent={Link}
+              to="/portfolio-example-1"
+              variant="outlined"
+              sx={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "50%",
+                border: "1px solid white",
+                color: "#FFFFFF",
+                padding: 0,
+                minWidth: "70px",
+                minHeight: "70px",
+                fontSize: "12px",
+              }}
+            >
+              Portfolio
+            </Button>
+            <Button
+              variant="outlined"
+              sx={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "50%",
+                border: "1px solid white",
+                color: "#FFFFFF",
+                padding: 0,
+                minWidth: "70px",
+                minHeight: "70px",
+                fontSize: "12px",
+              }}
+            >
+              Resume
+            </Button>
+            <Button
+              variant="outlined"
+              sx={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "50%",
+                border: "1px solid white",
+                color: "#FFFFFF",
+                padding: 0,
+                minWidth: "70px",
+                minHeight: "70px",
+                fontSize: "12px",
+              }}
+            >
+              Contact
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
