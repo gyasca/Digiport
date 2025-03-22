@@ -23,14 +23,22 @@ import WorkIcon from "@mui/icons-material/Work";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import LoginIcon from "@mui/icons-material/Login";
-import { Link } from "react-router-dom";
-import digiportlogo from "/digiportlogo1.png";
+import { Link, useLocation } from "react-router-dom";
+import gyascasubject from "/gyascasubject.png";
 
 export function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const location = useLocation();
 
-  // Logic for checking if user is logged in
-  const user = null; // Your logic for checking user here
+  const user = null; // Replace with actual user authentication logic
+
+  // Define navbar items
+  const navItems = [
+    { label: "Home", icon: <HomeIcon />, path: "/" },
+    { label: "About Me", icon: <PersonIcon />, path: "/aboutme" },
+    { label: "Projects", icon: <WorkIcon />, path: "/projects" },
+    { label: "Shop", icon: <StorefrontIcon />, path: "/shop" },
+  ];
 
   return (
     <Container
@@ -42,176 +50,111 @@ export function Navbar() {
         zIndex: 999,
       }}
     >
-      <AppBar position="sticky" sx={{ borderRadius: "10rem" }}>
-        <Toolbar>
-          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-            <IconButton
-              color="inherit"
-              sx={{
-                marginRight: "1rem",
-                display: ["flex", "flex", "none"],
-              }}
-              onClick={() => setIsDrawerOpen(true)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Button
-              color="inherit"
-              variant="text"
-              component={Link}
-              to="/"
-              sx={{
-                marginRight: "1rem",
-                fontFamily: "'caveat brush'",
-                textTransform: "none",
-                fontSize: "18px",
-                padding: "0",
-                "& img": {
-                  maxHeight: "40px",
-                },
-              }}
-            >
-              <img src={digiportlogo} alt="" />
-              <Typography variant="h6" component="div" sx={{ marginRight: "1rem", marginLeft: "0.5rem" }}>DigiPort</Typography>
-            </Button>
-            <Divider
-              orientation="vertical"
-              flexItem
-              sx={{
-                marginRight: "1rem",
-                display: ["none", "none", "flex"],
-              }}
-            />
-            <Stack
-              spacing={2}
-              direction="row"
-              sx={{ display: ["none", "none", "flex"] }}
-            >
-              <Button
-                startIcon={<HomeIcon />}
-                component={Link}
-                variant="text"
-                color="inherit"
-                to="/"
-              >
-                Home
-              </Button>
-              <Button
-                startIcon={<PersonIcon />}
-                component={Link}
-                variant="text"
-                color="inherit"
-                to="/aboutme"
-              >
-                About Me
-              </Button>
-              <Button
-                startIcon={<WorkIcon />}
-                component={Link}
-                variant="text"
-                color="inherit"
-                to="/projects"
-              >
-                Projects
-              </Button>
-              <Button
-                startIcon={<StorefrontIcon />}
-                component={Link}
-                variant="text"
-                color="inherit"
-                to="/shop"
-              >
-                Shop
-              </Button>
-            </Stack>
-          </Box>
-          {/* Display Login button if user is not logged in */}
-          {!user && (
-            <Button
-              component={Link}
-              variant="text"
-              color="inherit"
-              to="/login"
-              startIcon={<LoginIcon />}
-            >
-              Login
-            </Button>
-          )}
-          {/* Display profile button if user is logged in */}
-          {user && <NavbarProfile />}
-        </Toolbar>
-      </AppBar>
-
-      <Drawer
-        anchor={"left"}
-        open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
+      {/* Fading effect wrapper */}
+      <Box
+        sx={{
+          position: "relative",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(to right, rgba(0,0,0,0.2), transparent, rgba(0,0,0,0.2))",
+            pointerEvents: "none",
+          },
+        }}
       >
+        <AppBar position="sticky" sx={{ borderRadius: "10rem" }}>
+          <Toolbar>
+            <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+              <IconButton
+                color="inherit"
+                sx={{ marginRight: "1rem", display: ["flex", "flex", "none"] }}
+                onClick={() => setIsDrawerOpen(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Button
+                color="inherit"
+                variant="text"
+                component={Link}
+                to="/"
+                sx={{
+                  marginRight: "1rem",
+                  fontFamily: "'caveat brush'",
+                  textTransform: "none",
+                  fontSize: "18px",
+                  padding: "0",
+                  "& img": { maxHeight: "40px" },
+                }}
+              >
+                <img src={gyascasubject} alt="Logo" />
+              </Button>
+              <Divider
+                orientation="vertical"
+                flexItem
+                sx={{ marginRight: "1rem", display: ["none", "none", "flex"] }}
+              />
+              <Stack spacing={2} direction="row" sx={{ display: ["none", "none", "flex"] }}>
+                {navItems.map((item) => (
+                  <Button
+                    key={item.path}
+                    startIcon={item.icon}
+                    component={Link}
+                    to={item.path}
+                    variant="text"
+                    color="inherit"
+                    sx={{
+                      backgroundColor: location.pathname === item.path ? "rgba(137, 147, 77, 0.76)" : "transparent",
+                      borderRadius: "10px",
+                      padding: "6px 12px",
+                      fontWeight: location.pathname === item.path ? "bold" : "normal",
+                      // "&:hover": {
+                      //   backgroundColor: "rgba(255, 255, 255, 0.3)",
+                      // },
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                ))}
+              </Stack>
+            </Box>
+            {!user ? (
+              <Button component={Link} variant="text" color="inherit" to="/login" startIcon={<LoginIcon />}>
+                Login
+              </Button>
+            ) : (
+              <NavbarProfile />
+            )}
+          </Toolbar>
+        </AppBar>
+      </Box>
+
+      {/* Drawer for mobile navigation */}
+      <Drawer anchor="left" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
         <List sx={{ width: "250px" }}>
-          <ListItem key={"Home"}>
+          <ListItem>
             <Typography fontWeight={700}>Navigation Menu</Typography>
           </ListItem>
           <Divider sx={{ marginBottom: 1 }} />
-          <ListItem key={"Home"} disablePadding>
-            <ListItemButton
-              component={Link}
-              to="/"
-              onClick={() => setIsDrawerOpen(false)}
-            >
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Home"} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem key={"AboutMe"} disablePadding>
-            <ListItemButton
-              component={Link}
-              to="/aboutme"
-              onClick={() => setIsDrawerOpen(false)}
-            >
-              <ListItemIcon>
-                <PersonIcon />
-              </ListItemIcon>
-              <ListItemText primary={"About Me"} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem key={"Projects"} disablePadding>
-            <ListItemButton
-              component={Link}
-              to="/projects"
-              onClick={() => setIsDrawerOpen(false)}
-            >
-              <ListItemIcon>
-                <WorkIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Projects"} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem key={"Credits"} disablePadding>
-            <ListItemButton
-              component={Link}
-              to="/credits"
-              onClick={() => setIsDrawerOpen(false)}
-            >
-              <ListItemIcon>
-                <CreditCardIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Credits"} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem key={"Shop"} disablePadding>
-            <ListItemButton
-              component={Link}
-              to="/shop"
-              onClick={() => setIsDrawerOpen(false)}
-            >
-              <ListItemIcon>
-                <StorefrontIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Shop"} />
-            </ListItemButton>
-          </ListItem>
+          {navItems.map((item) => (
+            <ListItem key={item.path} disablePadding>
+              <ListItemButton
+                component={Link}
+                to={item.path}
+                onClick={() => setIsDrawerOpen(false)}
+                sx={{
+                  backgroundColor: location.pathname === item.path ? "rgba(0, 0, 0, 0.1)" : "transparent",
+                  "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.2)" },
+                }}
+              >
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </Drawer>
     </Container>
