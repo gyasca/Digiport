@@ -42,7 +42,7 @@ export function Navbar() {
         zIndex: 999,
       }}
     >
-      <AppBar position="sticky" sx={{ borderRadius: "0.5rem" }}>
+      <AppBar position="sticky" sx={{ borderRadius: "10rem" }}>
         <Toolbar>
           <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
             <IconButton

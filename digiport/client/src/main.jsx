@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 // Import pages
 import App from "./App.jsx";
-import AppCopy from "./App copy.jsx";
+// import AppCopy from "./App copy.jsx";
 
 import "./index.css";
 import {
@@ -30,8 +30,8 @@ let fonts = [
 let theme = createTheme({
   palette: {
     primary: {
-      main: "#4f4e34",
-      light: "#b2cfc6",
+      main: "rgb(0, 0, 0)",
+      light: "rgb(150, 250, 100)",
     },
     secondary: {
       main: grey[500],
@@ -53,6 +53,7 @@ let theme = createTheme({
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,
+    color: "rgb(150, 255, 100)",
   },
   components: {
     MuiTypography: {
@@ -68,6 +69,8 @@ let theme = createTheme({
           boxShadow:
             "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;",
           // box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+          color: "rgb(150, 255, 100)", // Without opacity
+          backgroundColor: "#000300"
         },
       },
     },
@@ -100,12 +103,12 @@ let theme = createTheme({
         root: {
           transition: "all 0.3s ease-in-out",
           "&:hover": {
-            color: "white",
-            backgroundColor: "#ff4086",
+            color: "black",
+            backgroundColor: "rgba(111, 255, 0)",
             // boxShadow:
             //   "0 0 15px rgba(222, 159, 95, 0.8), 0 0 25px rgba(199, 150, 101, 0.6), 0 0 35px rgba(255, 255, 255, 0.4)",
             boxShadow:
-              "rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;",
+              "rgba(111, 255, 0, 0.4) 0px 5px, rgba(111, 255, 0, 0.3) 0px 10px, rgba(111, 255, 0, 0.2) 0px 15px, rgba(111, 255, 0, 0.1) 0px 20px, rgba(111, 255, 0, 0.05) 0px 25px;",
           },
         },
       },

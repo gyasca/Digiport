@@ -116,7 +116,7 @@ const Home = () => {
                   >
                     <Avatar
                       alt="profilephoto"
-                      src="../../public/gregpfpbali.jpg"
+                      src="/gregpfpbali.jpg"
                       sx={{ width: 200, height: 200 }}
                     />
                   </StyledBadge>
