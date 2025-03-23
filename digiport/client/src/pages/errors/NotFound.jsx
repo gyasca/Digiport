@@ -7,10 +7,10 @@ import HomeIcon from '@mui/icons-material/Home';
 function NotFound() {
     return (
         <Container maxWidth="xl">
-            <Card sx={{ maxWidth: 500, margin: "auto" }}>
+            <Card sx={{ maxWidth: 500, ml: "auto", mr: "auto", padding:2 }}>
                 <CardContent>
                     <CardTitle icon={<QuestionMarkIcon />} title="Page Not Found" />
-                    <p>The page you are trying to look for is missing or has been moved.</p>
+                    <Typography sx={{mt: 3}}>The page you are trying to look for is missing or has been moved.</Typography>
                 </CardContent>
                 <CardActions>
                     <Button LinkComponent={Link} size="small" variant="text" color="primary" to="/" startIcon={<HomeIcon/>}> Return Home</Button>

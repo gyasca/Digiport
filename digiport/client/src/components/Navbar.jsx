@@ -36,6 +36,7 @@ export function Navbar() {
   const navItems = [
     { label: "Home", icon: <HomeIcon />, path: "/" },
     { label: "About Me", icon: <PersonIcon />, path: "/aboutme" },
+    { label: "Portfolio", icon: <PersonIcon />, path: "/portfolio-example-1" },
     { label: "Projects", icon: <WorkIcon />, path: "/projects" },
     { label: "Shop", icon: <StorefrontIcon />, path: "/shop" },
   ];
@@ -61,12 +62,13 @@ export function Navbar() {
             left: 0,
             width: "100%",
             height: "100%",
-            background: "linear-gradient(to right, rgba(0,0,0,0.2), transparent, rgba(0,0,0,0.2))",
+            background:
+              "linear-gradient(to right, rgba(0,0,0,0.2), transparent, rgba(0,0,0,0.2))",
             pointerEvents: "none",
           },
         }}
       >
-        <AppBar position="sticky" sx={{ borderRadius: "10rem" }}>
+        <AppBar position="sticky" sx={{ borderRadius: "10rem", backgroundColor: "primary.greyglass" }}>
           <Toolbar>
             <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
               <IconButton
@@ -97,7 +99,11 @@ export function Navbar() {
                 flexItem
                 sx={{ marginRight: "1rem", display: ["none", "none", "flex"] }}
               />
-              <Stack spacing={2} direction="row" sx={{ display: ["none", "none", "flex"] }}>
+              <Stack
+                spacing={2}
+                direction="row"
+                sx={{ display: ["none", "none", "flex"] }}
+              >
                 {navItems.map((item) => (
                   <Button
                     key={item.path}
@@ -107,10 +113,18 @@ export function Navbar() {
                     variant="text"
                     color="inherit"
                     sx={{
-                      backgroundColor: location.pathname === item.path ? "rgba(137, 147, 77, 0.76)" : "transparent",
-                      borderRadius: "10px",
+                      backgroundColor:
+                        location.pathname === item.path
+                          ? "rgb(114, 255, 163)"
+                          : "transparent",
+                      color:
+                        location.pathname === item.path
+                          ? "rgb(0, 0, 0)"
+                          : "primary.light",
+                      borderRadius: "50px",
                       padding: "6px 12px",
-                      fontWeight: location.pathname === item.path ? "bold" : "normal",
+                      fontWeight:
+                        location.pathname === item.path ? "bold" : "normal",
                       // "&:hover": {
                       //   backgroundColor: "rgba(255, 255, 255, 0.3)",
                       // },
@@ -122,7 +136,14 @@ export function Navbar() {
               </Stack>
             </Box>
             {!user ? (
-              <Button component={Link} variant="text" color="inherit" to="/login" startIcon={<LoginIcon />}>
+              <Button
+                component={Link}
+                variant="text"
+                color="inherit"
+                to="/login"
+                startIcon={<LoginIcon />}
+                sx={{ borderRadius: "50px" }}
+              >
                 Login
               </Button>
             ) : (
@@ -133,8 +154,18 @@ export function Navbar() {
       </Box>
 
       {/* Drawer for mobile navigation */}
-      <Drawer anchor="left" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-        <List sx={{ width: "250px" }}>
+      <Drawer
+        anchor="left"
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        sx={{
+          "& .MuiDrawer-paper": {
+            borderRadius: "0", // Ensures no border radius on the Drawer paper
+            backgroundColor: "primary.darkglass",
+          },
+        }}
+      >
+        <List sx={{ width: "250px", borderRadius: "0" }}>
           <ListItem>
             <Typography fontWeight={700}>Navigation Menu</Typography>
           </ListItem>
@@ -146,11 +177,37 @@ export function Navbar() {
                 to={item.path}
                 onClick={() => setIsDrawerOpen(false)}
                 sx={{
-                  backgroundColor: location.pathname === item.path ? "rgba(0, 0, 0, 0.1)" : "transparent",
-                  "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.2)" },
+                  backgroundColor:
+                    location.pathname === item.path
+                      ? "rgb(170, 255, 139)"
+                      : "transparent",
+                  color:
+                    location.pathname === item.path
+                      ? "rgb(0, 0, 0)"
+                      : "rgb(150, 255, 100)",
+                  m: location.pathname === item.path ? 2 : 1,
+                  borderRadius: location.pathname === item.path ? "50px" : 0,
+                  padding: location.pathname === item.path ? 2 : "auto",
+                  "&:hover": {
+                    backgroundColor: "rgb(180, 255, 196)",
+                    color: "black",
+                    borderRadius: "50px",
+                    m: 1,
+                  },
+                  "&:hover .list-item-icon": { color: "black" }, // Apply hover effect to icon indirectly
                 }}
               >
-                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemIcon
+                  className="list-item-icon"
+                  sx={{
+                    color:
+                      location.pathname === item.path
+                        ? "rgb(0, 0, 0)"
+                        : "rgb(150, 255, 100)",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
                 <ListItemText primary={item.label} />
               </ListItemButton>
             </ListItem>

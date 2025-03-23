@@ -12,6 +12,7 @@ import {
   responsiveFontSizes,
 } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
+import { CssBaseline } from "@mui/material";
 
 let fonts = [
   "Poppins",
@@ -27,8 +28,9 @@ let fonts = [
 ].join(",");
 
 // Theme for the website, configure it here
-let theme = createTheme({
+let unusedtheme = createTheme({
   palette: {
+    mode: "dark", // Ensure it's using dark mode
     primary: {
       main: "rgb(0, 0, 0)",
       light: "rgb(150, 250, 100)",
@@ -36,6 +38,81 @@ let theme = createTheme({
     secondary: {
       main: grey[500],
     },
+    text: {
+      primary: "rgb(150, 255, 100)", // Apply global text color
+      secondary: "rgba(150, 255, 100, 0.7)", // Lighter version
+    },
+  },
+  typography: {
+    fontFamily: fonts,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
+    allVariants: {
+      color: "rgb(150, 255, 100)", // Ensure all text is this color
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: "#000300", // Ensure a dark background
+          color: "rgb(150, 255, 100)", // Apply global text color
+        },
+      },
+    },
+    MuiTypography: {
+      defaultProps: {
+        color: "text.primary", // Ensure Typography components use the theme color
+      },
+    },
+
+    // MuiButtonBase: {
+    //   styleOverrides: {
+    //     root: {
+    //       borderRadius: "30px",
+    //     },
+    //   },
+    // },
+    // MuiCard: {
+    //   styleOverrides: {
+    //     root: {
+    //       borderRadius: "30px",
+    //     },
+    //   },
+    // },
+    // MuiTextField: {
+    //   styleOverrides: {
+    //     root: {
+    //       '& .MuiOutlinedInput-root': {
+    //         borderRadius: "30px",
+    //       },
+    //     },
+    //   },
+    // },
+  },
+});
+
+let theme = createTheme({
+  palette: {
+    mode: "dark", // Ensure it's using dark mode
+    primary: {
+      main: "rgb(150, 250, 100)",
+      light: "rgb(150, 250, 100)",
+      darkglass: "rgba(0, 0, 0, 0.95)",
+      greyglass: "rgba(3, 3, 3, 0.95)",
+    },
+    secondary: {
+      main: grey[500],
+    },
+    // primary: {
+    //   main: "rgb(0, 0, 0)",
+    //   light: "rgb(150, 250, 100)",
+    // },
+    // secondary: {
+    //   main: grey[500],
+    // },
     blue: {
       main: "#0083CA",
     },
@@ -45,6 +122,10 @@ let theme = createTheme({
     },
     white: {
       main: "#ffffff",
+    },
+    text: {
+      primary: "rgb(150, 255, 100)", // Apply global text color
+      secondary: "rgba(150, 255, 100, 0.7)", // Lighter version
     },
   },
   typography: {
@@ -61,19 +142,45 @@ let theme = createTheme({
         fontFamily: fonts,
       },
     },
+    // MuiPaper: {
+    //   styleOverrides: {
+    //     root: {
+    //       borderRadius: "50px", // Adjust border radius as needed
+    //       // boxShadow: "1px 1px 1px 1px rgba(1, 1, 1, 0.2)", // Custom elevation style
+    //       boxShadow:
+    //         "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;",
+    //       // box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    //       color: "rgb(150, 255, 100)", // Without opacity
+    //       backgroundColor: "rgba(0, 0, 0)",
+    //     },
+    //   },
+    // },
     MuiPaper: {
       styleOverrides: {
-        root: {
-          borderRadius: "30px", // Adjust border radius as needed
+        root: ({ ownerState }) => ({
+          borderRadius: ownerState.noRadius ? "0px" : "50px", // Remove border radius if noRadius is true
           // boxShadow: "1px 1px 1px 1px rgba(1, 1, 1, 0.2)", // Custom elevation style
           boxShadow:
-            "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;",
+            "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+            // "none",
           // box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-          color: "rgb(150, 255, 100)", // Without opacity
-          backgroundColor: "#000300"
-        },
+          color: "rgb(150, 255, 100)", // Text color
+          backgroundColor: "rgba(3, 3, 3, 0.95)", // Background color
+          backgroundImage: "none",
+        }),
       },
     },
+
+    MuiCard: {
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          // borderRadius: ownerState.noRadius ? "0px" : "50px", // Remove border radius if noRadius is true
+          backgroundColor: "rgba(3, 3, 3, 0.95)", // Background color
+          backgroundImage: "none",
+        }),
+      },
+    },
+
     // Global styles for all components
     // DataGrid specific styling
     MuiDataGrid: {
@@ -102,9 +209,11 @@ let theme = createTheme({
       styleOverrides: {
         root: {
           transition: "all 0.3s ease-in-out",
+          color: "primary",
           "&:hover": {
             color: "black",
             backgroundColor: "rgba(111, 255, 0)",
+            borderRadius: "50px",
             // boxShadow:
             //   "0 0 15px rgba(222, 159, 95, 0.8), 0 0 25px rgba(199, 150, 101, 0.6), 0 0 35px rgba(255, 255, 255, 0.4)",
             boxShadow:
@@ -113,6 +222,15 @@ let theme = createTheme({
         },
       },
     },
+
+    // MuiCard: {
+    //   styleOverrides: {
+    //     root: {
+    //       borderRadius: "30px",
+    //       m: 10
+    //     },
+    //   },
+    // },
 
     // MuiButtonBase: {
     //   styleOverrides: {
@@ -145,12 +263,21 @@ let theme = createTheme({
 
 theme = responsiveFontSizes(theme);
 
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <React.StrictMode>
+//     <ThemeProvider theme={theme}>
+//       <App />
+//       {/* For debugging */}
+//       {/* <AppCopy /> */}
+//     </ThemeProvider>
+//   </React.StrictMode>
+// );
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      <CssBaseline /> {/* Apply global styles */}
       <App />
-      {/* For debugging */}
-      {/* <AppCopy /> */}
     </ThemeProvider>
   </React.StrictMode>
 );

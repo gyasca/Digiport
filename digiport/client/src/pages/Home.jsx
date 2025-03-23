@@ -26,9 +26,9 @@ const Home = () => {
     "& .MuiBadge-badge": {
       backgroundColor: "#44b700",
       color: "#44b700",
-      width: "15px", // Increase width
-      height: "15px", // Increase height
-      fontSize: "8px", // Adjust font size if needed
+      width: "16px", // Increase width
+      height: "16px", // Increase height
+      fontSize: "2px", // Adjust font size if needed
       borderRadius: "50%",
       boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
       "&::after": {
@@ -39,8 +39,8 @@ const Home = () => {
         height: "100%",
         borderRadius: "50%",
         animation: "ripple 1.2s infinite ease-in-out",
-        border: "1px solid currentColor",
-        content: '""',
+        border: "1px dotted currentColor",
+        content: "''",
       },
     },
     "@keyframes ripple": {
