@@ -18,28 +18,13 @@ import {
   ListItem,
   ListItemText,
   IconButton,
-  ThemeProvider,
-  createTheme,
-  CssBaseline,
   Paper,
 } from "@mui/material";
 import {
   GitHub as GitHubIcon,
   LinkedIn as LinkedInIcon,
-  Mail as MailIcon,
   Launch as LaunchIcon,
 } from "@mui/icons-material";
-
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: '#2196f3',
-//     },
-//     secondary: {
-//       main: '#f50057',
-//     },
-//   },
-// });
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -50,250 +35,268 @@ const Portfolio = () => {
 
   const personalInfo = {
     name: "Gregory Achilles Chua",
-    title: "Full-stack developer",
-    bio: "I am a recent polytechnic graduate under the Diploma in Information Technology. I aspire to be a software developer in the future. As for the near future, I will be matriculating into NTU or SMU in 2027.",
+    title: "Full-stack Developer",
+    bio: "I am a soon to be polytechnic graduate under the Diploma in Information Technology (NYP). I aspire to be a software developer. In 2027, I will be matriculating into either NTU or SMU (undecided).",
     skills: [
       {
-        category: "Programming",
-        items: ["JavaScript", "Python", "React", "Node.js"],
+        category: "Programming Languages & Tools",
+        items: ["C#", "JavaScript", "Python", "Kotlin", "Java", "CSS", "HTML", "Node.js", "NuGet Package Manager", "PIP"],
+      },
+      {
+        category: "Frontend development",
+        items: ["React", "JinjaHTML", "Bootstrap",],
+      },
+      {
+        category: "Backend development & Database management",
+        items: ["Node.js", "ASP.net (C#)", "ASP.net Core (C#)", "Directus", "Microsoft SQL Server", "Shelve", "MySQL", "PostgreSQL", "MongoDB",],
+      },
+      {
+        category: "Other technical skills",
+        items: ["OS Management", "Linux", "Computer Networking", "Information Security & Encryption", "AI training & development (LLMs, CNNs, DL, ML, etc)", "Data structures & Algorithms", "Scrum",],
       },
       { category: "Design", items: ["UI/UX", "Figma", "Adobe XD"] },
       {
         category: "Soft Skills",
-        items: ["Communication", "Team Leadership", "Problem Solving"],
+        items: ["Communication", "Team Leadership", "Problem Solving", "Events Planning"],
       },
     ],
     experience: [
+      {
+        title: "Intern",
+        company: "CSIT",
+        period: "2024 (3 months)",
+        responsibilities: [
+          "Grade achieved: A",
+          "Software engineering and research in a real-world project environment",
+          "Open source software research",
+          "Full stack design & development"
+        ],
+      },
       {
         title: "Sales Associate",
         company: "AftershockPC",
         period: "2022-2023",
         responsibilities: [
           "Sales of desktop and laptop computers",
-          "72 sales in 4 days",
-          "Achieve daily sales target",
+          "Best performance: Achieved 72 sales in 4 days",
+          "Achieved daily sales targets",
+          "Worked with AftershockPC for 3 separate 4-day events",
         ],
       },
       {
-        title: "Full Stack Developer",
-        company: "StartUp Inc",
-        period: "2017 - 2020",
+        title: "Service Crew",
+        company: "McDonald's",
+        period: "2019-2020",
         responsibilities: [
-          "Developed and maintained multiple web applications using React and Node.js",
-          "Optimized database queries, improving application performance by 30%",
-          "Collaborated with UX designers to implement responsive designs",
+          "Cashiering",
+          "Table service",
+          "Food preparation",
+          "Certificates obtained: Food Hygiene Certificate",
+        ],
+      },
+      {
+        title: "Worker",
+        company: "General part time jobs",
+        period: "2019-2020",
+        responsibilities: [
+          "Banquet at Park Royal Marina and Orchard Hotel",
+          "Cashier & Kitchen assistant for Sports Hub events (Harry Styles concert, Rugby Match)",
         ],
       },
     ],
     projects: [
       {
-        name: "E-commerce Platform",
+        name: "CYHIGH (NYP Y1S1, 2022 August)",
         description:
-          "A full-stack e-commerce solution with real-time inventory management.",
-        technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
-        link: "https://github.com/yourusername/ecommerce-platform",
+          "A cycling website to educate Singaporeans about bicycles, cycling paths, and route planning.",
+        technologies: ["HTML", "Bootstrap", "JavaScript", "CSS"],
+        link: "#",
       },
       {
-        name: "AI-powered Chat Bot",
+        name: "OneSalonSG (NYP Y1S2, 2023 February)",
         description:
-          "An intelligent chatbot using natural language processing for customer support.",
-        technologies: ["Python", "TensorFlow", "Flask", "React"],
-        link: "https://github.com/yourusername/ai-chatbot",
+          "A full-stack e-commerce and salon booking website for a school project.",
+        technologies: ["Jinja HTML", "Python", "Flask", "Shelve", "Bootstrap", "CSS"],
+        link: "https://broching.pythonanywhere.com/",
       },
       {
-        name: "Data Visualization Dashboard",
-        description: "Interactive dashboard for visualizing complex datasets.",
-        technologies: ["D3.js", "React", "Express", "PostgreSQL"],
-        link: "https://github.com/yourusername/data-viz-dashboard",
+        name: "EnviroGo Carpooling and Bike Sharing (NYP Y2S1, 2023 August)",
+        description:
+          "A React and ExpressJS-based platform for carpooling and bike-sharing.",
+        technologies: [
+          "ReactJS",
+          "Node.js",
+          "MySQL",
+          "ExpressJS",
+          "JavaScript",
+        ],
+        link: "https://envirogo.cat2.link",
+      },
+      {
+        name: "NTUC UPlay Redesign (NYP Y2S2, 2024 February)",
+        description:
+          "Full-stack development and redesign of NTUC UPlay to improve user experience.",
+        technologies: ["ReactJS", "JavaScript", "ASP.NET Core", "C#"],
+        link: "#",
       },
     ],
     education: [
       {
-        degree: "M.S. in Computer Science",
-        institution: "Tech University",
-        year: "2017",
+        degree: "NYP Diploma in Information Technology",
+        institution: "Nanyang Polytechnic",
+        year: "2025",
+        gpa: "3.95",
       },
       {
-        degree: "B.S. in Software Engineering",
-        institution: "State College",
-        year: "2015",
+        degree: "GCE O-Level",
+        institution: "St. Gabriel's Secondary School",
+        year: "2021",
+        grade: "L1R4: 9 NETT"
       },
     ],
     contact: {
-      email: "your.email@example.com",
-      github: "https://github.com/yourusername",
-      linkedin: "https://www.linkedin.com/in/yourusername",
+      email: "gregorychua14@gmail.com",
+      github: "https://github.com/gyasca",
+      linkedin: "https://www.linkedin.com/in/gregory-achilles-chua-387628252/",
     },
   };
 
   return (
     <>
-      <Container
-        maxWidth="lg"
-        sx={{
-          mt: 0,
-          mb: 5,
-          position: "relative",
-          minHeight: "55vh",
-          display: "flex",
-          // the attributes below are to center all elements on the page vertically and horizontally
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Paper
-          sx={{
-            width: "100%",
-            maxWidth: "100%", // Adjust this value to change the fixed width
-            padding: 4,
-          }}
-        >
-          <Typography variant="h2" component="h1" gutterBottom>
-            {personalInfo.name}
-          </Typography>
-          <Typography variant="h5" color="textSecondary" paragraph>
-            {personalInfo.title}
-          </Typography>
-          <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 3 }}>
-            <Tabs
-              value={activeTab}
-              onChange={handleTabChange}
-              aria-label="portfolio tabs"
-            >
-              <Tab label="About" />
-              <Tab label="Experience" />
-              <Tab label="Projects" />
-              <Tab label="Education" />
-            </Tabs>
-          </Box>
-          <Box role="tabpanel" hidden={activeTab !== 0}>
-            {activeTab === 0 && (
-              <>
-                <Typography variant="body1" paragraph>
-                  {personalInfo.bio}
-                </Typography>
-                <Typography variant="h6" gutterBottom>
-                  Skills
-                </Typography>
-                {personalInfo.skills.map((skillGroup, index) => (
-                  <Box key={index} mb={2}>
-                    <Typography variant="subtitle1" gutterBottom>
-                      {skillGroup.category}
-                    </Typography>
-                    <Box display="flex" flexWrap="wrap" gap={1}>
-                      {skillGroup.items.map((skill, skillIndex) => (
-                        <Chip key={skillIndex} label={skill} />
-                      ))}
-                    </Box>
+      <Paper sx={{ padding: 4, mb: 4 }}>
+        <Typography variant="h2" component="h1" gutterBottom>
+          {personalInfo.name}
+        </Typography>
+        <Typography variant="h5" color="textSecondary" paragraph>
+          {personalInfo.title}
+        </Typography>
+        <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 3 }}>
+          <Tabs
+            value={activeTab}
+            onChange={handleTabChange}
+            aria-label="portfolio tabs"
+            variant="scrollable"
+            scrollButtons="auto"
+          >
+            <Tab label="About" />
+            <Tab label="Experience" />
+            <Tab label="Projects" />
+            <Tab label="Education" />
+          </Tabs>
+        </Box>
+        <Box role="tabpanel" hidden={activeTab !== 0}>
+          {activeTab === 0 && (
+            <>
+              <Typography variant="body1" paragraph>
+                {personalInfo.bio}
+              </Typography>
+              <Typography variant="h6" gutterBottom>
+                Skills
+              </Typography>
+              {personalInfo.skills.map((skillGroup, index) => (
+                <Box key={index} mb={2}>
+                  <Typography variant="subtitle1" gutterBottom>
+                    {skillGroup.category}
+                  </Typography>
+                  <Box display="flex" flexWrap="wrap" gap={1}>
+                    {skillGroup.items.map((skill, skillIndex) => (
+                      <Chip key={skillIndex} label={skill} />
+                    ))}
                   </Box>
-                ))}
-              </>
-            )}
-          </Box>
-          <Box role="tabpanel" hidden={activeTab !== 1}>
-            {activeTab === 1 && (
-              <List>
-                {personalInfo.experience.map((job, index) => (
-                  <ListItem key={index} alignItems="flex-start">
-                    <ListItemText
-                      primary={job.title}
-                      secondary={
-                        <>
-                          <Typography
-                            component="span"
-                            variant="body2"
-                            color="textPrimary"
-                          >
-                            {job.company} | {job.period}
-                          </Typography>
-                          <List dense>
-                            {job.responsibilities.map((resp, respIndex) => (
-                              <ListItem key={respIndex}>
-                                <ListItemText primary={resp} />
-                              </ListItem>
-                            ))}
-                          </List>
-                        </>
-                      }
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
-          </Box>
-          <Box role="tabpanel" hidden={activeTab !== 2}>
-            {activeTab === 2 && (
-              <Grid container spacing={3}>
-                {personalInfo.projects.map((project, index) => (
-                  <Grid item xs={12} sm={6} md={4} key={index}>
-                    <Card>
-                      <CardContent>
-                        <Typography variant="h6" component="div">
-                          {project.name}
-                        </Typography>
+                </Box>
+              ))}
+            </>
+          )}
+        </Box>
+        <Box role="tabpanel" hidden={activeTab !== 1}>
+          {activeTab === 1 && (
+            <List>
+              {personalInfo.experience.map((job, index) => (
+                <ListItem key={index} alignItems="flex-start">
+                  <ListItemText
+                    primary={job.title}
+                    secondary={
+                      <>
                         <Typography
+                          component="span"
                           variant="body2"
-                          color="text.secondary"
-                          paragraph
+                          color="textPrimary"
                         >
-                          {project.description}
+                          {job.company} | {job.period}
                         </Typography>
-                        <Box display="flex" flexWrap="wrap" gap={1} mb={2}>
-                          {project.technologies.map((tech, techIndex) => (
-                            <Chip key={techIndex} label={tech} size="small" />
+                        <List dense>
+                          {job.responsibilities.map((resp, respIndex) => (
+                            <ListItem key={respIndex}>
+                              <ListItemText primary={resp} />
+                            </ListItem>
                           ))}
-                        </Box>
-                      </CardContent>
-                      <CardActions>
-                        <Button
-                          size="small"
-                          endIcon={<LaunchIcon />}
-                          href={project.link}
-                          target="_blank"
-                        >
-                          View Project
-                        </Button>
-                      </CardActions>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-            )}
-          </Box>
-          <Box role="tabpanel" hidden={activeTab !== 3}>
-            {activeTab === 3 && (
-              <List>
-                {personalInfo.education.map((edu, index) => (
-                  <ListItem key={index}>
-                    <ListItemText
-                      primary={edu.degree}
-                      secondary={`${edu.institution} | ${edu.year}`}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
-          </Box>
-        </Paper>
-      </Container>
-      {/* <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6, mt: 4 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h6" align="center" gutterBottom>
-            Contact Me
-          </Typography>
-          <Box display="flex" justifyContent="center" gap={2}>
-            <IconButton aria-label="github" color="inherit" href={personalInfo.contact.github} target="_blank">
-              <GitHubIcon />
-            </IconButton>
-            <IconButton aria-label="linkedin" color="inherit" href={personalInfo.contact.linkedin} target="_blank">
-              <LinkedInIcon />
-            </IconButton>
-            <IconButton aria-label="email" color="inherit" href={`mailto:${personalInfo.contact.email}`}>
-              <MailIcon />
-            </IconButton>
-          </Box>
-        </Container>
-      </Box> */}
+                        </List>
+                      </>
+                    }
+                  />
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </Box>
+        <Box role="tabpanel" hidden={activeTab !== 2}>
+          {activeTab === 2 && (
+            <Grid container spacing={3}>
+              {personalInfo.projects.map((project, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <Card sx={{borderRadius: "30px", padding: 3, backgroundColor: "rgba(39, 42, 16, 0.71)", fontWeight: "bold"}}>
+                    <CardContent sx={{minHeight: "200px"}}>
+                      <Typography variant="h6" component="div">
+                        {project.name}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        paragraph
+                      >
+                        {project.description}
+                      </Typography>
+                      <Box display="flex" flexWrap="wrap" gap={1} mb={2}>
+                        {project.technologies.map((tech, techIndex) => (
+                          <Chip key={techIndex} label={tech} size="small" />
+                        ))}
+                      </Box>
+                    </CardContent>
+                    <CardActions>
+                      <Button
+                        size="small"
+                        endIcon={<LaunchIcon />}
+                        href={project.link}
+                        target="_blank"
+                      >
+                        View Project
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          )}
+        </Box>
+        <Box role="tabpanel" hidden={activeTab !== 3}>
+          {activeTab === 3 && (
+            <List>
+              {personalInfo.education.map((edu, index) => (
+                <ListItem key={index}>
+                  <ListItemText
+                    primary={edu.degree}
+                    secondary={`${edu.institution} | ${edu.year} ${
+                      edu.gpa ? `| GPA: ${edu.gpa}` : ""
+                    } ${
+                      edu.grade ? `| O-Level Grade: ${edu.grade}` : ""
+                    }`}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </Box>
+      </Paper>
     </>
   );
 };

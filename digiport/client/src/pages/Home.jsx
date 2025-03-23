@@ -184,7 +184,7 @@ const Home = () => {
               alignItems: "center",
               gap: 2, // Add space between the buttons
               padding: 1,
-              paddingTop: 3,
+              paddingTop: { xs: 0, md: 3 },
               paddingBottom: 3,
               background: "transparent",
             }}
@@ -192,15 +192,13 @@ const Home = () => {
             <Button
               variant="outlined"
               sx={{
-                width: "70px",
-                height: "70px",
+                width: { xs: "80px", md: "150px" }, // 70px on small screens, 150px on large screens
+                height: { xs: "80px", md: "150px" }, // 70px on small screens, 150px on large screens
                 borderRadius: "50%",
                 border: "1px solid white",
                 color: "#FFFFFF",
-                padding: 0, // Adjust padding to make the button shape correct
-                minWidth: "70px", // Ensure the button is at least 70px wide
-                minHeight: "70px", // Ensure the button is at least 70px tall
-                fontSize: "12px", // Adjust font size for smaller screens
+                padding: 0,
+                fontSize: { xs: "12px", md: "15px" }, // 12px font on small screens, 15px font on large screens
               }}
             >
               About Me
@@ -208,15 +206,13 @@ const Home = () => {
             <Button
               variant="outlined"
               sx={{
-                width: "70px",
-                height: "70px",
+                width: { xs: "80px", md: "150px" },
+                height: { xs: "80px", md: "150px" },
                 borderRadius: "50%",
                 border: "1px solid white",
                 color: "#FFFFFF",
                 padding: 0,
-                minWidth: "70px",
-                minHeight: "70px",
-                fontSize: "12px",
+                fontSize: { xs: "12px", md: "15px" },
               }}
             >
               Projects
@@ -226,15 +222,13 @@ const Home = () => {
               to="/portfolio-example-1"
               variant="outlined"
               sx={{
-                width: "70px",
-                height: "70px",
+                width: { xs: "80px", md: "150px" },
+                height: { xs: "80px", md: "150px" },
                 borderRadius: "50%",
                 border: "1px solid white",
                 color: "#FFFFFF",
                 padding: 0,
-                minWidth: "70px",
-                minHeight: "70px",
-                fontSize: "12px",
+                fontSize: { xs: "12px", md: "15px" },
               }}
             >
               Portfolio
@@ -242,15 +236,13 @@ const Home = () => {
             <Button
               variant="outlined"
               sx={{
-                width: "70px",
-                height: "70px",
+                width: { xs: "80px", md: "150px" },
+                height: { xs: "80px", md: "150px" },
                 borderRadius: "50%",
                 border: "1px solid white",
                 color: "#FFFFFF",
                 padding: 0,
-                minWidth: "70px",
-                minHeight: "70px",
-                fontSize: "12px",
+                fontSize: { xs: "12px", md: "15px" },
               }}
             >
               Resume
@@ -258,15 +250,13 @@ const Home = () => {
             <Button
               variant="outlined"
               sx={{
-                width: "70px",
-                height: "70px",
+                width: { xs: "80px", md: "150px" },
+                height: { xs: "80px", md: "150px" },
                 borderRadius: "50%",
                 border: "1px solid white",
                 color: "#FFFFFF",
                 padding: 0,
-                minWidth: "70px",
-                minHeight: "70px",
-                fontSize: "12px",
+                fontSize: { xs: "12px", md: "15px" },
               }}
             >
               Contact

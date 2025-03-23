@@ -1,21 +1,22 @@
 import React from "react";
 import {
-  Button,
-  Container,
-  Card,
-  CardContent,
-  CardActions,
-  Stack,
-  Typography,
-  TextField,
+  Box
 } from "@mui/material";
 import PortfolioExample1 from "../../components/exampleComponents/PortfolioExample1";
 
 function PortfolioExamplePage1() {
   return (
-    <Container maxWidth="xl">
+    <Box
+      sx={{
+        minHeight: "55vh",
+        display: "flex",
+        // the attributes below are to center all elements on the page vertically and horizontally
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <PortfolioExample1 />
-    </Container>
+    </Box>
   );
 }
 
