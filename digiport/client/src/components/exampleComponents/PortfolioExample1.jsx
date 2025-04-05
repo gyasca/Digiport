@@ -142,10 +142,10 @@ const Portfolio = () => {
     ],
     education: [
       {
-        degree: "NYP Diploma in Information Technology",
+        degree: "DIPLOMA IN INFORMATION TECHNOLOGY with MERIT",
         institution: "Nanyang Polytechnic",
         year: "2025",
-        gpa: "3.95",
+        gpa: "3.96",
       },
       {
         degree: "GCE O-Level",
