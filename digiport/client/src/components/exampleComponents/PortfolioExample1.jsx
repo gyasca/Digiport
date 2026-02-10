@@ -145,7 +145,7 @@ const Portfolio = () => {
         degree: "DIPLOMA IN INFORMATION TECHNOLOGY with MERIT",
         institution: "Nanyang Polytechnic",
         year: "2025",
-        gpa: "3.96",
+        gpa: "3.96 out of 4.00",
       },
       {
         degree: "GCE O-Level",
@@ -286,7 +286,7 @@ const Portfolio = () => {
                   <ListItemText
                     primary={edu.degree}
                     secondary={`${edu.institution} | ${edu.year} ${
-                      edu.gpa ? `| GPA: ${edu.gpa}` : ""
+                      edu.gpa ? `| Grade Point Average (GPA): ${edu.gpa}` : ""
                     } ${
                       edu.grade ? `| O-Level Grade: ${edu.grade}` : ""
                     }`}

@@ -168,10 +168,10 @@ const Home = () => {
                 Welcome to my Portfolio
               </Typography>
               <Typography variant="body1" gutterBottom>
-                I am a recent Information Technology graduate from Nanyang
-                Polytechnic, equipped with a strong foundation in software
-                design and implementation and a passion for software
-                development.
+                I am a polytechnic graduate under the Diploma in Information
+                Technology (NYP). I aspire to work in business-software
+                industry. In 2027, I will be matriculating into university
+                (Local). development.
               </Typography>
             </CardContent>
           </Card>

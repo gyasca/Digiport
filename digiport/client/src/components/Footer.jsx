@@ -145,7 +145,7 @@ function Footer() {
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <Typography color={"inherit"} sx={{ textAlign: "center" }}>
-              2025 Digital Portfolio - Designed (Figma), developed (ReactJS) & hosted (Oracle Cloud Instance) by Gregory Achilles Chua
+              2026 Digital Portfolio - Designed (Figma), developed (ReactJS) & hosted on (Oracle Cloud) by Gregory Achilles Chua
             </Typography>
           </Link>
         </Container>
