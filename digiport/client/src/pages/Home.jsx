@@ -171,7 +171,7 @@ const Home = () => {
                 I am a polytechnic graduate under the Diploma in Information
                 Technology (NYP). I aspire to work in business-software
                 industry. In 2027, I will be matriculating into university
-                (Local). development.
+                (Offers from SMU Double Degree in Computer Science and Business with Merit Scholarship, and NTU Computer Science with Dean's Award currently).
               </Typography>
             </CardContent>
           </Card>
